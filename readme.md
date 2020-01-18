@@ -36,7 +36,7 @@ K-means clustering algorithm is an iterative clustering analysis algorithm. It s
 K-means algorithm depends on the selection of inital solution. We introduce K-center clustering algorithm. The K-center method uses the center points to define the prototype, in which the center points are the most representative points of a group of points, and uses the distance between the spatial point groups to find the typical points as the seed objects of clustering.
 
 #### K-means clustering results with randomly selected initial points
-![avatar](http://github.com/RongRongJi/K-meansCluster/data/pure_kmeans.jpg)
+![avatar](https://github.com/RongRongJi/K-meansCluster/blob/master/data/pure_kmeans.jpg?raw=true)
 
 #### K-means clustering results using K-center for center initialization
 
