@@ -60,7 +60,7 @@ k_means_cluster(False, 'init_with_random')
 The function is used to read the dataset, and use k-means algorithm to cluster the dataset, and output it in the form of image.<br>
 Props: <br>
 `using_kcenter` decide whether to use k-center algorithm to initialize centers of the dataset. `True` for use, while `False` for not, default `True`.
-`picture_name` decide the name of the output image. Default `picutre`.
+`picture_name` decide the name of the output image. Default `picture`.
 
 
 ****
