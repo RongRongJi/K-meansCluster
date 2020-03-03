@@ -8,11 +8,15 @@ class Kcenter:
     centers = {}  # 中心点
     point_sets = {}  # 点分类
     visits = []  # 计算中需要使用的变量
+    r = 0 # 点密度半径取值
 
-    def __init__(self, K, points):
+    def __init__(self, K, points, r):
         self.K = K
         self.points = points
         self.visits = copy.deepcopy(points)
+        self.centers = {}
+        self.point_sets = {}
+        self.r = r
 
     '''
     Step 1: Initialization: Create a single cluster of all nodes.
@@ -33,7 +37,10 @@ class Kcenter:
     def cluster(self):
         count = 0
         # Step 1
-        self.centers[0] = self.visits[0]
+        # self.centers[0] = self.visits[np.random.randint(0, len(self.visits), 1)[0]]
+        # 通过计算密度得出最佳第一点为 (801539.0, 318482.0)
+        self.centers[0] = self.density(self.r)
+        # self.centers[0] = (801539.0, 318482.0)
         self.point_sets[count] = []
         for visit in self.visits:
             self.point_sets[0].append(visit)
@@ -66,12 +73,25 @@ class Kcenter:
                 # 重新划分点
                 self.point_sets[current_part].append(point)
             count += 1
-            print("=========", count, '==========')
-            print(self.centers)
-        print("计算完成")
-        print(self.centers)
-        print(self.point_sets)
+            # print("=========", count, '==========')
+            # print(self.centers)
+        # print("计算完成")
+        # print(self.centers)
+        # print(self.point_sets)
 
+    # 计算密度
+    def density(self, r):
+        large, point = 0, None
+        for pi in self.points:
+            total = 0
+            for pj in self.points:
+                dist = np.sqrt(np.power(pi[0]-pj[0],2)+np.power(pi[1]-pj[1],2))
+                if dist < r:
+                    total += 1
+            if large < total:
+                large = total
+                point = pi
+        return point
 
 
 

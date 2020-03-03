@@ -11,7 +11,7 @@ def read_file():
         x, y = split_x_y(line)
         points.append((x,y))
         line = f.readline()
-    print(len(points))
+    # print(len(points))
     return points
 
 

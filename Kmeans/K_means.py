@@ -19,12 +19,13 @@ class Kmeans:
         for i in range(K):
             self.point_sets[i] = []
         self.k_center = k_center
+        self.means = {}
 
     # 选择初始质心
     def select_init_centroid(self):
         if self.k_center:
             # 使用K-center选取
-            kcenter = Kcenter(self.K, self.points)
+            kcenter = Kcenter(self.K, self.points, 150)
             kcenter.cluster()
             for i in range(self.K):
                 self.means[i] = kcenter.centers[i]
@@ -79,11 +80,11 @@ class Kmeans:
             self.divide_set()
             is_change = self.select_new_centroid()
             times+=1
-            print("=========",times,'==========')
-            print(self.means)
-        print("计算完成")
-        print(self.means)
-        print(self.point_sets)
+            # print("=========",times,'==========')
+            # print(self.means)
+        # print("计算完成")
+        # print(self.means)
+        # print(self.point_sets)
 
 
 
