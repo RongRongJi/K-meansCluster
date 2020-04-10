@@ -22,7 +22,7 @@ def k_means_cluster(k_center, center_num, picName='picture'):
     # 聚类评价
     eva = evaluate(center_num,cluster.point_sets,cluster.means)
     # eva.__print__()
-    print(center_num, ' ', eva.silhouette_score(),' ',eva.cost_function())
+    print(center_num, ' ', eva.silhouette_score(),' ',eva.__print__())
 
 
 

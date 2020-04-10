@@ -85,6 +85,7 @@ class Kmeans:
         # print("计算完成")
         # print(self.means)
         # print(self.point_sets)
+        print(times)
 
 
 
